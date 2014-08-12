@@ -1,5 +1,5 @@
 /**
- * Created by root on 10.08.2014.
+ * Created by Faton on 10.08.2014.
  */
 public class Node {
     public int value;
