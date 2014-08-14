@@ -11,9 +11,9 @@ public class MySimpleLinkedListCollection {
         System.out.println("Основной список: " + printToString(tail));
 //        System.out.println("Добавляем в голову итеративно: "+printToString(addToHeadIter(77, tail)));
 //        System.out.println("Добавляем в голову рекурсивно: " + printToString(addToHeadRec(99, tail)));
-//        System.out.println("Вставляем в позицию значение итеративно: "+printToString(inseartInPositionIter(5, 2, tail)));
-        System.out.println("Вставляем в позицию значение рекурсивно: "+printToString(inseartInPositionRec(122, 2, tail)));
-//        System.out.println("Удалить последнюю позицию итеративно: "+printToString(removeHeadIter(tail)));
+//        System.out.println("Вставляем в позицию значение итеративно: "+printToString(inseartInPositionIter(55, 2, tail)));
+//        System.out.println("Вставляем в позицию значение рекурсивно: "+printToString(inseartInPositionRec(122, 3, tail)));
+        System.out.println("Удалить последнюю позицию итеративно: "+printToString(removeHeadIter(tail)));
     }
 
     public static Node addToHeadIter(int value, Node tail) {
@@ -65,10 +65,6 @@ public class MySimpleLinkedListCollection {
 
     public static Node removeHeadRec(Node tail) {
         Node currentItemRec = tail;
-        return tail;
-    }
-
-    public static Node simpleMethod(Node tail){
         return tail;
     }
 
