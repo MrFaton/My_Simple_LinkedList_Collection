@@ -8,13 +8,21 @@ public class MySimpleLinkedListCollection {
         tail = new Node(1, tail);
         tail = new Node(2, tail);
         tail = new Node(3, tail);
-        System.out.println("Основной список: " + printToString(tail));
+        Node tailB;
+        tailB = new Node(0, null);
+        tailB = new Node(1, tailB);
+        tailB = new Node(5, tailB);
+        tailB = new Node(3, tailB);
+//        System.out.println("Основной список: " + printToString(tail));
 //        System.out.println("Добавляем в голову итеративно: "+printToString(addToHeadIter(77, tail)));
 //        System.out.println("Добавляем в голову рекурсивно: " + printToString(addToHeadRec(99, tail)));
 //        System.out.println("Вставляем в позицию значение итеративно: "+printToString(inseartInPositionIter(55, 2, tail)));
 //        System.out.println("Вставляем в позицию значение рекурсивно: "+printToString(inseartInPositionRec(122, 3, tail)));
 //        System.out.println("Удалить голову итеративно: "+printToString(removeHeadIter(tail)));
-        System.out.println("Удалить голову рекурсивно: " + printToString(removeHeadRec(tail)));
+//        System.out.println("Удалить голову рекурсивно: " + printToString(removeHeadRec(tail)));
+//        System.out.println("Удалить удалить позицию итеративно: " + printToString(removePositionIter(0, tail)));
+//        System.out.println("Удалить удалить позицию рекурсивно: " + printToString(removePositionRec(2, tail)));
+        System.out.println("Хвост А: " + printToString(tail)+"\nХвост В: "+printToString(tailB)+"\nРезультат сравнения: "+isEqualRec(tail, tailB));
     }
 
     public static Node addToHeadIter(int value, Node tail) {
@@ -70,6 +78,40 @@ public class MySimpleLinkedListCollection {
         return tail;
     }
 
+    public static Node removePositionIter(int position, Node tail) {
+        Node currentItemIter=tail;
+        if (position==0){
+            tail=tail.next;
+        } else {
+            int i = 0;
+            while (i<position-1){
+                i++;
+                currentItemIter=currentItemIter.next;
+            }
+            currentItemIter.next=currentItemIter.next.next;
+        }
+        return tail;
+    }
+
+    public static Node removePositionRec(int position, Node tail) {
+        if(position==0){
+            tail=tail.next;
+        } else {
+            removePositionInnerRec(0, position, tail);
+        }
+        return tail;
+    }
+
+    public static Boolean isEqualRec(Node tail, Node tailB){
+        if (tail != null && tailB != null) {
+            return (tail.value==tailB.value) && isEqualRec(tail.next, tailB.next);
+        } else {
+            return tail==tailB;
+        }
+    }
+
+//    Внутренние методы...
+
     public static Node inseartInPositionInnerRec(int i, int valueInner, int positionInner, Node tailInner) {
         if (positionInner == 0) {
             tailInner = new Node(valueInner, tailInner);
@@ -88,6 +130,16 @@ public class MySimpleLinkedListCollection {
         } else {
             prevElement = tailInner;
             removeHeadInnerRec(prevElement, tailInner.next);
+        }
+        return tailInner;
+    }
+
+    public static Node removePositionInnerRec(int i, int positionInner, Node tailInner){
+        if(i<positionInner-1){
+            i++;
+            removePositionInnerRec(i, positionInner, tailInner.next);
+        } else {
+            tailInner.next=tailInner.next.next;
         }
         return tailInner;
     }
