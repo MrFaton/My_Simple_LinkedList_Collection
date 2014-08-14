@@ -13,7 +13,8 @@ public class MySimpleLinkedListCollection {
 //        System.out.println("Добавляем в голову рекурсивно: " + printToString(addToHeadRec(99, tail)));
 //        System.out.println("Вставляем в позицию значение итеративно: "+printToString(inseartInPositionIter(55, 2, tail)));
 //        System.out.println("Вставляем в позицию значение рекурсивно: "+printToString(inseartInPositionRec(122, 3, tail)));
-        System.out.println("Удалить последнюю позицию итеративно: "+printToString(removeHeadIter(tail)));
+//        System.out.println("Удалить голову итеративно: "+printToString(removeHeadIter(tail)));
+        System.out.println("Удалить голову рекурсивно: " + printToString(removeHeadRec(tail)));
     }
 
     public static Node addToHeadIter(int value, Node tail) {
@@ -26,8 +27,8 @@ public class MySimpleLinkedListCollection {
     }
 
     public static Node addToHeadRec(int value, Node tail) {
-        if (tail.next==null){
-            tail.next=new Node(value, null);
+        if (tail.next == null) {
+            tail.next = new Node(value, null);
         } else {
             addToHeadRec(value, tail.next);
         }
@@ -48,7 +49,7 @@ public class MySimpleLinkedListCollection {
     }
 
     public static Node inseartInPositionRec(int value, int position, Node tail) {
-        tail=inseartInPositionInnerRec(1, value, position, tail);
+        tail = inseartInPositionInnerRec(1, value, position, tail);
         return tail;
     }
 
@@ -64,18 +65,29 @@ public class MySimpleLinkedListCollection {
     }
 
     public static Node removeHeadRec(Node tail) {
-        Node currentItemRec = tail;
+        Node prevElement = tail;
+        tail = removeHeadInnerRec(prevElement, tail);
         return tail;
     }
 
-    public static Node inseartInPositionInnerRec(int i, int valueInner, int positionInner, Node tailInner){
-        if(positionInner==0){
-            tailInner=new Node(valueInner, tailInner);
-        } else if(i==positionInner){
-            tailInner.next=new Node(valueInner, tailInner.next);
-        } else{
+    public static Node inseartInPositionInnerRec(int i, int valueInner, int positionInner, Node tailInner) {
+        if (positionInner == 0) {
+            tailInner = new Node(valueInner, tailInner);
+        } else if (i == positionInner) {
+            tailInner.next = new Node(valueInner, tailInner.next);
+        } else {
             i++;
             inseartInPositionInnerRec(i, valueInner, positionInner, tailInner.next);
+        }
+        return tailInner;
+    }
+
+    public static Node removeHeadInnerRec(Node prevElement, Node tailInner) {
+        if (tailInner.next == null) {
+            prevElement.next = null;
+        } else {
+            prevElement = tailInner;
+            removeHeadInnerRec(prevElement, tailInner.next);
         }
         return tailInner;
     }
