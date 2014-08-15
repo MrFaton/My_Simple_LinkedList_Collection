@@ -18,20 +18,20 @@ public class MySimpleLinkedListCollection {
         Node tailC;
         tailC = listCreator(5, 8, 9, 7, 6);
 
-//        System.out.println("Основной список: " + printToString(tail));
+        System.out.println("Основной список: " + printToString(tail));
 //        System.out.println("Добавляем в голову итеративно: "+printToString(addToHeadIter(77, tail)));
 //        System.out.println("Добавляем в голову рекурсивно: " + printToString(addToHeadRec(99, tail)));
 //        System.out.println("Вставляем в позицию значение итеративно: "+printToString(inseartInPositionIter(55, 2, tail)));
 //        System.out.println("Вставляем в позицию значение рекурсивно: "+printToString(inseartInPositionRec(122, 3, tail)));
 //        System.out.println("Удалить голову итеративно: "+printToString(removeHeadIter(tail)));
 //        System.out.println("Удалить голову рекурсивно: " + printToString(removeHeadRec(tail)));
-//        System.out.println("Удалить удалить позицию итеративно: " + printToString(removePositionIter(0, tail)));
+//        System.out.println("Удалить удалить позицию итеративно: " + printToString(removePositionIter(2, tail)));
 //        System.out.println("Удалить удалить позицию рекурсивно: " + printToString(removePositionRec(2, tail)));
 //        System.out.println("Хвост А: " + printToString(tail)+"\nХвост В: "+printToString(tailB)+"\nРезультат сравнения: "+isEqualRec(tail, tailB));
 //        System.out.println("Длина списка "+printToString(tail)+" равна "+length(tail)+" единиц(ы)");
-        System.out.println("Сумма всех элементов списка " + printToString(tailC) + " равна " + summOfList(tailC));
+//        System.out.println("Сумма всех элементов списка " + printToString(tailC) + " равна " + summOfList(tailC));
 //        System.out.println("Максимальное значение среди всех элементов списка " + printToString(tail) + " равно " + maxItem(tail));
-//        System.out.println("Создание списка с помощью цикла " + printToString(tailC));
+        System.out.println("Создание списка с помощью цикла " + printToString(tailC));
     }
 
     public static Node addToHeadIter(int value, Node tail) {
